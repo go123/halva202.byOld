@@ -37,7 +37,7 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-        // ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'Home', 'url' => ['/site/index']],
         // ['label' => 'About', 'url' => ['/site/about']],
         // ['label' => 'Contact', 'url' => ['/site/contact']],
 		['label' => 'Репетитор', 'url' => 'http://repetitor.github.io/'],
@@ -45,8 +45,8 @@ AppAsset::register($this);
 		['label' => 'Английские спикин-клабы в Минске', 'url' => 'http://cvr.by/blog/istorii-uspekha/item/118-english-speaking-clubs-v-minske.html'],
     ];
     if (Yii::$app->user->isGuest) {
-        // $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
-        // $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
+        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
@@ -79,9 +79,9 @@ AppAsset::register($this);
 			+375 25 6268071 (viber)
 			<br>halva202@gmail.com
 			<br>
-			<a href="http://vk.com/halva202"><img src="images/icons/vk32.png" title="rss" alt="rss" /></a>
-			<a href="https://www.facebook.com/halva202" target="blank"><img src="images/icons/facebook-32x32.png" title="facebook" alt="facebook" /></a>
-			<a href="https://www.youtube.com/channel/UCyYbgYd4iQD3qPlQf5SxZIg" target="blank"><img src="images/icons/youtube-32x32.png" title="youtube" alt="youtube" /></a>
+			<a href="http://vk.com/halva202"><img src="/images/icons/vk32.png" title="rss" alt="rss" /></a>
+			<a href="https://www.facebook.com/halva202" target="blank"><img src="/images/icons/facebook-32x32.png" title="facebook" alt="facebook" /></a>
+			<a href="https://www.youtube.com/channel/UCyYbgYd4iQD3qPlQf5SxZIg" target="blank"><img src="/images/icons/youtube-32x32.png" title="youtube" alt="youtube" /></a>
 		</p>
 		
 

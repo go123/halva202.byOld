@@ -11,7 +11,7 @@ $this->title = 'Halva202';
 
         <p class="lead">Меня зовут Виктор. My name is Viktar.</p>
 
-        <p><img src="images/ava/avaYellow.jpg" alt="ava" /></p>
+        <p><img src="/images/ava/avaYellow.jpg" alt="ava" /></p>
     </div>
 
     <div class="body-content">

@@ -4,6 +4,8 @@
 
 $this->title = 'Halva202';
 ?>
+
+<?php if (Yii::$app->user->isGuest): ?>
 <div class="site-index">
 
     <div class="jumbotron">
@@ -59,3 +61,6 @@ $this->title = 'Halva202';
 
     </div>
 </div>
+<?php else: ?>
+test
+<?php endif; ?>

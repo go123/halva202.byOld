@@ -2,50 +2,58 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Halva202';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Hi!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Меня зовут Виктор. My name is Viktar.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><img src="images/ava/avaYellow.jpg" alt="ava" /></p>
     </div>
 
     <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Чуток о себе</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>Обожаю стремиться вести здоровый, экологичный, активный образ жизни. Мне нравится жить разнообразно, и поэтому я люблю Беларусь за ее 4 поры года (и не только поэтому). Интересуюсь it-инновациями. Интернет для меня - это, прежде всего, среда ускоренного общения по делу. Полдня - программирую, полдня - преподаю.</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://halva202.github.io/">Сайт-визитка до... &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Ссылки</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>
+				Ввиду того, что я много чего посещаю, меня часто спрашивают: где, что, как) Пока парочка ссылок:
+				<br>
+				<a href="http://cvr.by/blog/istorii-uspekha/item/118-english-speaking-clubs-v-minske.html" target="blank">Английские спикин-клабы в Минске</a>
+				<br>
+				<a href="http://cvr.by/blog/istorii-uspekha/item/124-uber-revolyutsionnyj-startap-ili-putevye-zametki-polzovatelya.html" target="blank">Uber - новое такси в Минске</a>
+				</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-default" href="https://calendar.yandex.ru/week?embed&private_token=bb07b200d6f883707f1f430e8dfad8b46dc5053d&tz_id=Europe/Minsk">Календарь событий &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Преподаю</h2>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p>
+				Физика, химия, математика, web-программирование.
+				</p>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-default" href="http://repetitor.github.io/">Репетитор &raquo;</a></p>
+            </div>
+			<div class="col-lg-4">
+                <h2>Программирую</h2>
+
+                <p>
+				PHP, MySQL, Yii2, JS. Создаю сайты в команде.
+				</p>
+
+                <p><a class="btn btn-default" href="http://cvr.by/">Центр выгодных решений &raquo;</a></p>
             </div>
         </div>
 

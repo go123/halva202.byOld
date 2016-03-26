@@ -62,5 +62,20 @@ $this->title = 'Halva202';
     </div>
 </div>
 <?php else: ?>
-test
+<div class="site-index">
+
+    <div class="body-content">
+	
+	<h1>Предметы</h1>
+	<ul>
+	<?php foreach ($modelLesson as $lesson): ?>
+		<li>
+			<?= $lesson->title ?>
+		</li>
+	<?php endforeach; ?>
+	</ul>
+
+	</div>
+
+</div>
 <?php endif; ?>

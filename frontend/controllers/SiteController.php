@@ -13,6 +13,8 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use app\models\Lesson;
+
 /**
  * Site controller
  */
@@ -72,7 +74,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new Lesson();
+		$lesson=$model::getLesson();
+        return $this->render('index', [
+                'modelLesson' => $lesson,
+            ]);
     }
 
     /**

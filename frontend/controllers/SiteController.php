@@ -14,6 +14,9 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
 use app\models\Lesson;
+use app\models\LessonSection;
+use app\models\LessonTopic;
+use app\models\Userprofile;
 
 /**
  * Site controller
@@ -74,10 +77,66 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Lesson();
-		$lesson=$model::getLesson();
-        return $this->render('index', [
-                'modelLesson' => $lesson,
+		$listOfLessons=[];	
+		$model = new Lesson();
+		$lessons=$model::getLessons();
+		$model4 = new Userprofile();
+		$userprofile=$model4::getUserprofile();
+		foreach($lessons as $lessonNote){	
+			$lesson=[$lessonNote];	
+			$model2 = new LessonSection();
+			$lessonSections=$model2::getLessonSingleSections($lesson_id=$lessonNote->id);
+			$listOfSections=[];
+			foreach($lessonSections as $sectionNote){
+				// $section=[$sectionNote->title];
+				$section=[$sectionNote];
+				$model3 = new LessonTopic();
+				$lessonTopics=$model3::getLessonSingleSectionSingleTopics($lesson_section_id=$sectionNote->id);
+				$listOfTopics=[];
+				foreach($lessonTopics as $topic){
+					array_push($listOfTopics, $topic);
+				}
+				array_push($section, $listOfTopics);
+				array_push($listOfSections, $section);
+			}	
+			array_push($lesson, $listOfSections);
+			array_push($lesson, $userprofile);
+			array_push($listOfLessons, $lesson);
+		}
+		
+
+		/* $listOfLessons=[
+			[
+				'name1', 
+				[
+					['sec1',
+						['top1','top2'],
+					],
+					['sec2',
+						['top1','top2'],
+					],
+					['sec3',
+						['top1','top2'],
+					],
+				]
+			],
+			[
+				'name2', 
+				[
+					['sec1',
+						['top1','top2'],
+					],
+					['sec2',
+						['top1','top2'],
+					],
+					['sec3',
+						['top1','top2'],
+					],
+				]
+			],
+		]; */
+	return $this->render('index', [
+                'modelLessonPlus' => $listOfLessons,
             ]);
     }
 

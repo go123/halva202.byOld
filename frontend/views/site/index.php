@@ -68,9 +68,24 @@ $this->title = 'Halva202';
 	
 	<h1>Предметы</h1>
 	<ul>
-	<?php foreach ($modelLesson as $lesson): ?>
+	<?php foreach ($modelLessonPlus as $lesson): ?>
 		<li>
-			<?= $lesson->title ?>
+			<?= $lesson[0]['title'].' (Мнение репетитора: '.$lesson[2]['lesson_'.$lesson[0]['id'].'_TutorOpinion'].')' ?>
+			<ul>
+				<?php foreach ($lesson[1] as $lessonSection): ?>
+				<li>
+					<?= $lessonSection[0]['title'].' (Мнение репетитора: '.$lesson[2]['sec'.$lessonSection[0]['id'].'TutorOpinion'].')' ?>
+					<ul>
+						<?php foreach ($lessonSection[1] as $lessonSectionTopic): ?>
+						<li>
+							<?= $lessonSectionTopic['title'].' (Мнение репетитора: '.$lesson[2]['topic'.$lessonSectionTopic['id'].'TutorOpinion'].')' ?>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+					
+				</li>
+				<?php endforeach; ?>
+			</ul>
 		</li>
 	<?php endforeach; ?>
 	</ul>

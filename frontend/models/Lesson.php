@@ -15,7 +15,7 @@ class Lesson extends ActiveRecord
         return 'lesson';
     }
 
-    public static function getLesson()
+    public static function getLessons()
 	{
 		$lesson = Lesson::find()->all();
 		return $lesson;

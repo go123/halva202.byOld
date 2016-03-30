@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use yii\db\Migration;
+
 /**
  * LessonsectionController implements the CRUD actions for LessonSection model.
  */
@@ -66,6 +68,10 @@ class LessonsectionController extends Controller
         $model = new LessonSection();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+			$migr=new Migration;
+			$idLastInsertNote=Yii::$app->db->getLastInsertID();
+			$migr->addColumn ( $table='userprofile', $column='sec'.$idLastInsertNote.'TutorOpinion', $type='TEXT' );
+			$migr->addColumn ( $table='userprofile', $column='sec'.$idLastInsertNote.'PupilOpinion', $type='TEXT' );
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [

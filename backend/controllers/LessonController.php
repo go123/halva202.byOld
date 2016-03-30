@@ -9,6 +9,10 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use app\models\Userprofile;
+
+use yii\db\Migration;
+
 /**
  * LessonController implements the CRUD actions for Lesson model.
  */
@@ -37,8 +41,8 @@ class LessonController extends Controller
     {
         $searchModel = new LessonSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
+		
+		return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -66,7 +70,16 @@ class LessonController extends Controller
         $model = new Lesson();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+			// name of new lesson
+			// var_dump(Yii::$app->request->post()["Lesson"]["title"]);
+			// echo Yii::$app->request->post()["Lesson"]["title"];
+			// add new column
+			$migr=new Migration;
+			// $migr->addColumn ( $table='userprofile', $column=Yii::$app->request->post()["Lesson"]["title"], $type='TEXT' );
+			$idLastInsertNote=Yii::$app->db->getLastInsertID();
+			$migr->addColumn ( $table='userprofile', $column='lesson_'.$idLastInsertNote.'_TutorOpinion', $type='TEXT' );
+			$migr->addColumn ( $table='userprofile', $column='lesson_'.$idLastInsertNote.'_PupilOpinion', $type='TEXT' );
+			return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,

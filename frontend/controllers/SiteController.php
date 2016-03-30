@@ -16,6 +16,7 @@ use yii\filters\AccessControl;
 use app\models\Lesson;
 use app\models\LessonSection;
 use app\models\LessonTopic;
+use app\models\Userprofile;
 
 /**
  * Site controller
@@ -79,23 +80,27 @@ class SiteController extends Controller
 		$listOfLessons=[];	
 		$model = new Lesson();
 		$lessons=$model::getLessons();
+		$model4 = new Userprofile();
+		$userprofile=$model4::getUserprofile();
 		foreach($lessons as $lessonNote){	
-			$lesson=[$lessonNote->title];	
+			$lesson=[$lessonNote];	
 			$model2 = new LessonSection();
 			$lessonSections=$model2::getLessonSingleSections($lesson_id=$lessonNote->id);
 			$listOfSections=[];
 			foreach($lessonSections as $sectionNote){
-				$section=[$sectionNote->title];
+				// $section=[$sectionNote->title];
+				$section=[$sectionNote];
 				$model3 = new LessonTopic();
 				$lessonTopics=$model3::getLessonSingleSectionSingleTopics($lesson_section_id=$sectionNote->id);
 				$listOfTopics=[];
 				foreach($lessonTopics as $topic){
-					array_push($listOfTopics, $topic->title);
+					array_push($listOfTopics, $topic);
 				}
 				array_push($section, $listOfTopics);
 				array_push($listOfSections, $section);
 			}	
 			array_push($lesson, $listOfSections);
+			array_push($lesson, $userprofile);
 			array_push($listOfLessons, $lesson);
 		}
 		

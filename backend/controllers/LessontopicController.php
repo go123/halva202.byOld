@@ -9,6 +9,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use yii\db\Migration;
+
 /**
  * LessontopicController implements the CRUD actions for LessonTopic model.
  */
@@ -67,6 +69,11 @@ class LessontopicController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
+			$migr=new Migration;
+			$idLastInsertNote=Yii::$app->db->getLastInsertID();
+			$migr->addColumn ( $table='userprofile', $column='topic'.$idLastInsertNote.'TutorOpinion', $type='TEXT' );
+			$migr->addColumn ( $table='userprofile', $column='topic'.$idLastInsertNote.'PupilOpinion', $type='TEXT' );
+            
         } else {
             return $this->render('create', [
                 'model' => $model,

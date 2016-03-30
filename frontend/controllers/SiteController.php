@@ -216,6 +216,11 @@ class SiteController extends Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
+				//дополню данными таблицу userprofile
+					$idUser = Yii::$app->db->getLastInsertID();
+					$model2=new Userprofile;
+					$model2->user_id = $idUser;
+					$model2->insert();
                 if (Yii::$app->getUser()->login($user)) {
                     return $this->goHome();
                 }
